@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="react-0.14.3/build/react.min.js"></script>
+    <script src="react-0.14.3/build/react-dom.min.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel" src="app.js"></script>
+    <script>
+        function func() {
+            $("#reg-photo").change(function(){
+                var filename = $(this).val().replace(/.*\\/, "");
+                $("#filename").val(filename);
+                
+            });
+            document.querySelectorAll('.input-text').forEach(function(e){
+                e.addEventListener('change', function(){
+                    this.classList.add('input-text-focused')
+                })
+            })
+            // var token = new XMLHttpRequest();
+            // token.open('GET', 'https://frontend-test-assignment-api.abz.agency/api/v1/token', false);
+            // token.send();
+
+            // console.log('> GET api/v1/token');
+            // console.log(token.status);
+            // console.log(token.responseText);
+
+
+
+            // var formData = new FormData();
+
+            // formData.append('name', document.getElementById('reg-name').value);
+            // formData.append('email', document.getElementById('reg-email').value);
+            // formData.append('phone',  document.getElementById('reg-phone').value);
+            // formData.append('position_id', document.getElementById('reg-position').value);
+            // formData.append('photo', document.getElementById('reg-photo').files[0]);
+
+            // var xhr = new XMLHttpRequest();
+            // xhr.open("POST", "https://frontend-test-assignment-api.abz.agency/api/v1/users", false);
+
+            // console.log('> POST api/v1/users/');
+            // console.log(xhr.status);
+            // console.log(xhr.responseText);
+            
+            // var form = document.getElementById('form');
+            // form.setAttribute("action", 'https://frontend-test-assignment-api.abz.agency/api/v1/users');
+            // form.onsubmit = function() {
+            //     console.log('submit')
+            // }
+
+
+
+            document.querySelector('.header-button-hidden').addEventListener('click', function(){
+                document.querySelector('.header-wrapper').classList.toggle('header-wrapper-show');
+                window.addEventListener('click', function(e){
+                    if(e.target === document.querySelector('.header-wrapper-bg')) {
+                        document.querySelector('.header-wrapper').classList.remove('header-wrapper-show');
+                    }
+                })
+            })
+        }
+        setTimeout(func, 100);
+        
+    </script>
+</body>
+</html>
